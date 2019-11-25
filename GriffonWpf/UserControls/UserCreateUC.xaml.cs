@@ -51,7 +51,7 @@ namespace GriffonWpf.UserControls
                 this.txtBLastname.Text, 
                 DateTime.Parse(this.datepickerDateOfBirth.Text), 
                 this.txtBLogin.Text, 
-                this.txtBPassword.Text);
+                this.txtBPassword.Password);
             Console.WriteLine(user);
         }
     }

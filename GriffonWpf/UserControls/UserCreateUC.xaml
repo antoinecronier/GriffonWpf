@@ -17,7 +17,7 @@
             <Label x:Name="lblLogin"/>
             <TextBox x:Name="txtBLogin"/>
             <Label x:Name="lblPassword"/>
-            <TextBox x:Name="txtBPassword"/>
+            <PasswordBox x:Name="txtBPassword"/>
             <Button x:Name="btnValidate">Validate</Button>
         </StackPanel>
     </ScrollViewer>
