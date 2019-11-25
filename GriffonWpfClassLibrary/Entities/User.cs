@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GriffonWpfClassLibrary.Entities
+{
+    public class User
+    {
+        private String firstname;
+        private String lastname;
+        private DateTime dateOfBirth;
+
+        public string Firstname { get => firstname; set => firstname = value; }
+        public string Lastname { get => lastname; set => lastname = value; }
+        public DateTime DateOfBirth { get => dateOfBirth; set => dateOfBirth = value; }
+
+        public User()
+        {
+
+        }
+
+        public User(String firstname, String lastname, DateTime dateOfBirth)
+        {
+            this.firstname = firstname;
+            this.lastname = lastname;
+            this.dateOfBirth = dateOfBirth;
+        }
+    }
+}
