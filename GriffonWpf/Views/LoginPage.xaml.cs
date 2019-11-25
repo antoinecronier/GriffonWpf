@@ -1,4 +1,5 @@
 ﻿using GriffonWpf.ViewModels;
+using GriffonWpf.Views.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace GriffonWpf.Views
     /// <summary>
     /// Logique d'interaction pour LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class LoginPage : BasePage
     {
         private LoginPageViewModel vm;
 
@@ -27,11 +28,6 @@ namespace GriffonWpf.Views
         {
             InitializeComponent();
             vm = new LoginPageViewModel(this);
-        }
-
-        public Window GetWindow()
-        {
-            return Window.GetWindow(this);
         }
     }
 }

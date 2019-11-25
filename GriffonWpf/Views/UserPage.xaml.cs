@@ -1,4 +1,5 @@
 ﻿using GriffonWpf.ViewModels;
+using GriffonWpf.Views.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace GriffonWpf.Views
     /// <summary>
     /// Logique d'interaction pour UserPage.xaml
     /// </summary>
-    public partial class UserPage : Page
+    public partial class UserPage : BasePage
     {
         private UserPageViewModel vm;
 
