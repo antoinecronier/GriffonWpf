@@ -25,11 +25,18 @@ namespace GriffonWpfClassLibrary.Entities
 
         }
 
-        public User(String firstname, String lastname, DateTime dateOfBirth)
+        public User(String firstname, String lastname, DateTime dateOfBirth, String login, String password)
         {
             this.firstname = firstname;
             this.lastname = lastname;
             this.dateOfBirth = dateOfBirth;
+            this.login = login;
+            this.password = password;
+        }
+
+        public override string ToString()
+        {
+            return this.Firstname + " " + this.Lastname + " " + this.DateOfBirth + " " + this.Login + " " + this.Password;
         }
     }
 }

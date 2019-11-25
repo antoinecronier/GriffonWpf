@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:basePage="clr-namespace:GriffonWpf.Views.Base"
+      xmlns:UC="clr-namespace:GriffonWpf.UserControls"
       xmlns:local="clr-namespace:GriffonWpf.Views"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="400"
@@ -29,5 +30,6 @@
         <TextBlock x:Name="TxtB1" Grid.Row="0" Grid.ColumnSpan="7" HorizontalAlignment="Center">COUCOU</TextBlock>
         <Button x:Name="Btn1" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3">Click Me</Button>
         <Calendar HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top"/>
+        <UC:UserCreateUC x:Name="UserCreateUC" Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="3" Grid.RowSpan="3"/>
     </Grid>
 </basePage:BasePage>

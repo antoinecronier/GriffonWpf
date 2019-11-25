@@ -6,7 +6,19 @@
              xmlns:local="clr-namespace:GriffonWpf.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <ScrollViewer>
+        <StackPanel>
+            <Label x:Name="lblFirstname"/>
+            <TextBox x:Name="txtBFirstname"/>
+            <Label x:Name="lblLastname"/>
+            <TextBox x:Name="txtBLastname"/>
+            <Label x:Name="lblDateOfBirth"/>
+            <DatePickerTextBox x:Name="datepickerDateOfBirth"/>
+            <Label x:Name="lblLogin"/>
+            <TextBox x:Name="txtBLogin"/>
+            <Label x:Name="lblPassword"/>
+            <TextBox x:Name="txtBPassword"/>
+            <Button x:Name="btnValidate">Validate</Button>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>
