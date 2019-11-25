@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GriffonWpfClassLibrary.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,33 @@ namespace GriffonWpf.UserControls
     /// </summary>
     public partial class UserCreateUC : UserControl
     {
+        private User _user;
+
         public UserCreateUC()
         {
             InitializeComponent();
+            BindItems();
+        }
+
+        public UserCreateUC(User user) : this()
+        {
+            this._user = user;
+        }
+
+        public void BindItems()
+        {
+            this.btn_Validate.Click += Btn_Validate_Click; 
+        }
+
+        private void Btn_Validate_Click(object sender, RoutedEventArgs e)
+        {
+            User oUser = new User();
+
+            oUser.Firstname = this.txt_FirstName.Text;
+            oUser.Lastname = this.txt_LastName.Text;
+            oUser.DateOfBirth = this.date_DateOfBirth.DisplayDate;
+            oUser.Login = this.txt_Login.Text;
+            oUser.Password = this.pas_Password.Password;
         }
     }
 }
