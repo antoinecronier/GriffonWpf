@@ -28,6 +28,21 @@ namespace GriffonWpf.Views
         {
             InitializeComponent();
             vm = new UserPageViewModel(this);
+            this.BindElements();
+        }
+
+        private void BindElements()
+        {
+            this.Loaded += UserPage_Loaded;
+        }
+
+        private void UserPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextBlock txtB = new TextBlock();
+            txtB.Text = "Welcome from code";
+            Grid.SetRow(txtB, this.mainContainer.RowDefinitions.Count / 2);
+            Grid.SetColumn(txtB, this.mainContainer.ColumnDefinitions.Count / 2);
+            this.mainContainer.Children.Add(txtB);
         }
     }
 }

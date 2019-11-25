@@ -61,7 +61,7 @@ namespace GriffonWpf.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à 300d.
+        ///   Recherche une chaîne localisée semblable à 300.
         /// </summary>
         internal static string AppMinHeight {
             get {
@@ -70,7 +70,7 @@ namespace GriffonWpf.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à 400s.
+        ///   Recherche une chaîne localisée semblable à 400.
         /// </summary>
         internal static string AppMinWidth {
             get {
