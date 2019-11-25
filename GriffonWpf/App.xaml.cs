@@ -14,12 +14,5 @@ namespace GriffonWpf
     /// </summary>
     public partial class App : Application
     {
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            base.OnStartup(e);
-            //Window w1 = new Window();
-            //w1.Content = new UserPage();
-            //w1.Show();
-        }
     }
 }

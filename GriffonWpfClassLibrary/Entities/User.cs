@@ -14,8 +14,6 @@ namespace GriffonWpfClassLibrary.Entities
         private String login;
         private String password;
 
-
-
         public string Firstname { get => firstname; set => firstname = value; }
         public string Lastname { get => lastname; set => lastname = value; }
         public DateTime DateOfBirth { get => dateOfBirth; set => dateOfBirth = value; }
