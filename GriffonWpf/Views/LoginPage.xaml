@@ -10,6 +10,7 @@
       Title="LoginPage">
 
     <StackPanel>
+        <Label x:Name="lblThread"></Label>
         <TextBlock x:Name="txtBlockLogin"></TextBlock>
         <TextBox x:Name="txtBoxLogin"></TextBox>
         <TextBlock x:Name="txtBlockPassword"></TextBlock>
