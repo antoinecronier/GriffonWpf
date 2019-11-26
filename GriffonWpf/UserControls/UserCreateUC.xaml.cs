@@ -1,4 +1,5 @@
-﻿using GriffonWpf.Views.Utils;
+﻿using GriffonWpf.ViewModels.Events;
+using GriffonWpf.Views.Utils;
 using GriffonWpfClassLibrary.Entities;
 using System;
 using System.Collections.Generic;
@@ -53,6 +54,20 @@ namespace GriffonWpf.UserControls
                 this.txtBLogin.Text, 
                 this.txtBPassword.Password);
             Console.WriteLine(user);
+            OnUserCreated(new UserEventArgs(user));
         }
+
+
+        public event EventHandler UserCreated;
+
+        protected virtual void OnUserCreated(UserEventArgs e)
+        {
+            EventHandler handler = UserCreated;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
     }
 }

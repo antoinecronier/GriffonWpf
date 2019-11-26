@@ -1,5 +1,6 @@
 ﻿using GriffonWpf.ViewModels;
 using GriffonWpf.Views.Base;
+using GriffonWpfClassLibrary.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,7 @@ namespace GriffonWpf.Views
         {
             InitializeComponent();
             vm = new UserPageViewModel(this);
+            this.DataContext = vm;
             this.BindElements();
         }
 
@@ -38,11 +40,11 @@ namespace GriffonWpf.Views
 
         private void UserPage_Loaded(object sender, RoutedEventArgs e)
         {
-            TextBlock txtB = new TextBlock();
-            txtB.Text = "Welcome from code";
-            Grid.SetRow(txtB, this.mainContainer.RowDefinitions.Count / 2);
-            Grid.SetColumn(txtB, this.mainContainer.ColumnDefinitions.Count / 2);
-            this.mainContainer.Children.Add(txtB);
+            //TextBlock txtB = new TextBlock();
+            //txtB.Text = "Welcome from code";
+            //Grid.SetRow(txtB, this.mainContainer.RowDefinitions.Count / 2);
+            //Grid.SetColumn(txtB, this.mainContainer.ColumnDefinitions.Count / 2);
+            //this.mainContainer.Children.Add(txtB);
         }
     }
 }

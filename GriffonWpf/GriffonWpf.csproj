@@ -79,6 +79,8 @@
       <DependentUpon>UserCreateUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModels\Events\UserEventArgs.cs" />
+    <Compile Include="ViewModels\ICommands\RemoveItemCommand.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\UserPageViewModel.cs" />
     <Compile Include="Views\Base\BasePage.cs" />

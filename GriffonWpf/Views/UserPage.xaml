@@ -27,9 +27,39 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="TxtB1" Grid.Row="0" Grid.ColumnSpan="7" HorizontalAlignment="Center">COUCOU</TextBlock>
+        <ListView x:Name="listViewUsers" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="7" Grid.RowSpan="3">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Remove"
+                        Command="{Binding RemoveItem}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu}, Path=PlacementTarget.SelectedItem}" />
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <Label x:Name="lblFirstname">Firstname</Label>
+                        <TextBlock x:Name="txtBFirstname" Text="{Binding Firstname}"/>
+                        <Label x:Name="lblLastname">Lastname</Label>
+                        <TextBlock x:Name="txtBLastname" Text="{Binding Lastname}"/>
+                        <Label x:Name="lblDateOfBirth">Date of birth</Label>
+                        <TextBlock x:Name="txtBDateOfBirth" Text="{Binding DateOfBirth}"/>
+                        <Label x:Name="lblLogin">Login</Label>
+                        <TextBlock x:Name="txtBLogin" Text="{Binding Login}"/>
+                        <Label x:Name="lblPassword">Password</Label>
+                        <TextBlock x:Name="txtBPassword" Text="{Binding Password}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!--<TextBlock x:Name="TxtB1" Grid.Row="0" Grid.ColumnSpan="7" HorizontalAlignment="Center">COUCOU</TextBlock>
         <Button x:Name="Btn1" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3">Click Me</Button>
-        <Calendar HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Calendar HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top"/>-->
         <UC:UserCreateUC x:Name="UserCreateUC" Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="3" Grid.RowSpan="3"/>
     </Grid>
 </basePage:BasePage>
