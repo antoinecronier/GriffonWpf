@@ -9,15 +9,15 @@
     <ScrollViewer>
         <StackPanel>
             <Label x:Name="lblFirstname"/>
-            <TextBox x:Name="txtBFirstname"/>
+            <TextBox x:Name="txtBFirstname" Text="{Binding User.Firstname}"/>
             <Label x:Name="lblLastname"/>
-            <TextBox x:Name="txtBLastname"/>
+            <TextBox x:Name="txtBLastname" Text="{Binding User.Lastname}"/>
             <Label x:Name="lblDateOfBirth"/>
-            <DatePickerTextBox x:Name="datepickerDateOfBirth"/>
+            <DatePickerTextBox x:Name="datepickerDateOfBirth" Text="{Binding User.DateOfBirth}"/>
             <Label x:Name="lblLogin"/>
-            <TextBox x:Name="txtBLogin"/>
+            <TextBox x:Name="txtBLogin" Text="{Binding User.Login}"/>
             <Label x:Name="lblPassword"/>
-            <PasswordBox x:Name="txtBPassword"/>
+            <TextBox x:Name="txtBPassword" Text="{Binding User.Password}"/>
             <Button x:Name="btnValidate">Validate</Button>
         </StackPanel>
     </ScrollViewer>

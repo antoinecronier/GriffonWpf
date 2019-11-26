@@ -24,9 +24,13 @@ namespace GriffonWpf.UserControls
     /// </summary>
     public partial class UserCreateUC : UserControl
     {
+        public User User { get; set; }
+
         public UserCreateUC()
         {
             InitializeComponent();
+            this.User = new User();
+            this.DataContext = this;
             this.LoadItems();
             this.BindItems();
         }
@@ -47,14 +51,14 @@ namespace GriffonWpf.UserControls
 
         private void BtnValidate_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User(
-                this.txtBFirstname.Text, 
-                this.txtBLastname.Text, 
-                DateTime.Parse(this.datepickerDateOfBirth.Text), 
-                this.txtBLogin.Text, 
-                this.txtBPassword.Password);
-            Console.WriteLine(user);
-            OnUserCreated(new UserEventArgs(user));
+            //User user = new User(
+            //    this.txtBFirstname.Text, 
+            //    this.txtBLastname.Text, 
+            //    DateTime.Parse(this.datepickerDateOfBirth.Text), 
+            //    this.txtBLogin.Text, 
+            //    this.txtBPassword.Text);
+            Console.WriteLine(this.User);
+            OnUserCreated(new UserEventArgs(this.User));
         }
 
 
