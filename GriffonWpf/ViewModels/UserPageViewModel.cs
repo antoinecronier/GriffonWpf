@@ -9,6 +9,7 @@ using GriffonWpf.ViewModels.Base;
 using GriffonWpf.ViewModels.Events;
 using GriffonWpf.ViewModels.ICommands;
 using GriffonWpf.Views;
+using GriffonWpfClassLibrary.Database;
 using GriffonWpfClassLibrary.Entities;
 
 namespace GriffonWpf.ViewModels
@@ -29,8 +30,14 @@ namespace GriffonWpf.ViewModels
         private void LoadItems()
         {
             //this.currentPage.TxtB1.Text = "Bonjour";
-            users.Add(new User("u1", "lu1", DateTime.Now, "l1", "p1"));
-            users.Add(new User("u2", "lu2", DateTime.Now, "l2", "p2"));
+            using (var db = new GriffonWpfContext())
+            {
+                foreach (var item in db.Users.ToList())
+                {
+                    users.Add(item);
+                }
+            }
+
             this.currentPage.listViewUsers.ItemsSource = users;
 
             this.RemoveItem = new RemoveItemCommand();
@@ -45,17 +52,24 @@ namespace GriffonWpf.ViewModels
 
         private void UserCreateUC_UserCreated(object sender, EventArgs e)
         {
-            this.users.Add((e as UserEventArgs).User);
-        }
-
-        private void Btn1_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            //this.currentPage.TxtB1.Text += " coucou";
+            User user = (e as UserEventArgs).User;
+            this.users.Add(user);
+            using (var db = new GriffonWpfContext())
+            {
+                db.Users.Add(user);
+                db.SaveChanges();
+            }
         }
 
         private void RemoveItem_HaveToRemoved(object sender, EventArgs e)
         {
-            this.users.Remove((sender as RemoveItemCommand).ToRemoved as User);
+            User user = (sender as RemoveItemCommand).ToRemoved as User;
+            this.users.Remove(user);
+            using (var db = new GriffonWpfContext())
+            {
+                db.Entry(user).State = System.Data.Entity.EntityState.Deleted;
+                db.SaveChanges();
+            }
         }
     }
 }

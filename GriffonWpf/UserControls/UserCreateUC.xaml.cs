@@ -1,9 +1,11 @@
 ﻿using GriffonWpf.ViewModels.Events;
 using GriffonWpf.Views.Utils;
 using GriffonWpfClassLibrary.Entities;
+using GriffonWpfClassLibrary.Entities.Validators.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,7 +32,7 @@ namespace GriffonWpf.UserControls
         {
             InitializeComponent();
             this.User = new User();
-            this.DataContext = this;
+            this.DataContext = this.User;
             this.LoadItems();
             this.BindItems();
         }
@@ -47,20 +49,44 @@ namespace GriffonWpf.UserControls
         private void BindItems()
         {
             this.btnValidate.Click += BtnValidate_Click;
+            this.txtBFirstname.LostFocus += TxtBFirstname_LostFocus;
+            this.txtBLastname.LostFocus += TxtBLastname_LostFocus;
+        }
+
+        private void TxtBLastname_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (ValidatorUtils.PropertyErrorAction("Lastname", this.User, (String errorMessage) =>
+            {
+                this.lblError.Content += errorMessage;
+                this.lblError.Visibility = Visibility.Visible;
+            }))
+            {
+                this.lblError.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void TxtBFirstname_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (ValidatorUtils.PropertyErrorAction("Firstname", this.User, (String errorMessage) =>
+            {
+                this.lblError.Content += errorMessage;
+                this.lblError.Visibility = Visibility.Visible;
+            }))
+            {
+                this.lblError.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void BtnValidate_Click(object sender, RoutedEventArgs e)
         {
-            //User user = new User(
-            //    this.txtBFirstname.Text, 
-            //    this.txtBLastname.Text, 
-            //    DateTime.Parse(this.datepickerDateOfBirth.Text), 
-            //    this.txtBLogin.Text, 
-            //    this.txtBPassword.Text);
             Console.WriteLine(this.User);
-            OnUserCreated(new UserEventArgs(this.User));
+            if (ValidatorUtils.Validate(this.User, out _))
+            {
+                OnUserCreated(new UserEventArgs(this.User));
+            }
+            this.User = new User();
+            this.DataContext = this.User;
         }
-
 
         public event EventHandler UserCreated;
 

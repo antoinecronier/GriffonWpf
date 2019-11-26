@@ -8,16 +8,17 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <ScrollViewer>
         <StackPanel>
+            <Label x:Name="lblError" Visibility="Collapsed"/>
             <Label x:Name="lblFirstname"/>
-            <TextBox x:Name="txtBFirstname" Text="{Binding User.Firstname}"/>
+            <TextBox x:Name="txtBFirstname" Text="{Binding Firstname}"/>
             <Label x:Name="lblLastname"/>
-            <TextBox x:Name="txtBLastname" Text="{Binding User.Lastname}"/>
+            <TextBox x:Name="txtBLastname" Text="{Binding Lastname}"/>
             <Label x:Name="lblDateOfBirth"/>
-            <DatePickerTextBox x:Name="datepickerDateOfBirth" Text="{Binding User.DateOfBirth}"/>
+            <DatePickerTextBox x:Name="datepickerDateOfBirth" Text="{Binding DateOfBirth}"/>
             <Label x:Name="lblLogin"/>
-            <TextBox x:Name="txtBLogin" Text="{Binding User.Login}"/>
+            <TextBox x:Name="txtBLogin" Text="{Binding Login}"/>
             <Label x:Name="lblPassword"/>
-            <TextBox x:Name="txtBPassword" Text="{Binding User.Password}"/>
+            <TextBox x:Name="txtBPassword" Text="{Binding Password}"/>
             <Button x:Name="btnValidate">Validate</Button>
         </StackPanel>
     </ScrollViewer>
