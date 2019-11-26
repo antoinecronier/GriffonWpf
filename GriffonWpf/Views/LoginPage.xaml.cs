@@ -28,6 +28,25 @@ namespace GriffonWpf.Views
         {
             InitializeComponent();
             vm = new LoginPageViewModel(this);
+            this.Loaded += LoginPage_Loaded;
+        }
+
+        private void LoginPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigating += NavigationService_Navigating;
+            (this.Parent as NavigationWindow).ShowsNavigationUI = false;
+        }
+
+        private void NavigationService_Navigating(object sender, NavigatingCancelEventArgs e)
+        {
+            if (e.NavigationMode == NavigationMode.Forward)
+            {
+                e.Cancel = true;
+            }
+            else if (e.NavigationMode == NavigationMode.New && this.Parent != null)
+            {
+                (this.Parent as NavigationWindow).ShowsNavigationUI = true;
+            }
         }
     }
 }
