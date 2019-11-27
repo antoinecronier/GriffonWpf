@@ -43,20 +43,38 @@ namespace GriffonWpf.Views
 
         private void Freeze()
         {
-            Task.Factory.StartNew(() =>
+            AutoResetEvent aRe = new AutoResetEvent(false);
+
+            Action a1 = () =>
             {
                 Task.Delay(TimeSpan.FromMilliseconds(50)).Wait();
 
-                Application.Current.Dispatcher.Invoke(DispatcherPriority.Send, new ThreadStart(delegate
+                int i = 0;
+                while (true)
                 {
-                    int i = 0;
-                    while (true)
+                    Application.Current.Dispatcher.Invoke(DispatcherPriority.Send, new ThreadStart(delegate
                     {
+
                         this.lblThread.Content = i;
-                        Console.WriteLine(i);
-                        i++;
+
+                    }));
+                    if (i == 10000)
+                    {
+                        aRe.Set();
                     }
-                }));
+                    Console.WriteLine(i);
+                    i++;
+                }
+            };
+            
+            Task.Factory.StartNew(a1);
+
+            Task.Factory.StartNew(() =>
+            {
+                if (aRe.WaitOne())
+                {
+                    Console.WriteLine("finish");
+                }
             });
         }
 
